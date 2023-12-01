@@ -15,21 +15,27 @@ public class helloController {
     BoardService boardService;
 
     @RequestMapping("/")
-    public String hello(){
+    public String hello() {
 //    System.out.println("This is hello function");
 
-    return "index";
+        return "index";
+    }
+
+    @RequestMapping("/board/list")
+    public String boardList() {
+
+        return "boardlist";
     }
 
     @RequestMapping("classList")
-    public String classList(Model model){
+    public String classList(Model model) {
 
-    model.addAttribute("title","들어야하는 수업");
+        model.addAttribute("title", "들어야하는 수업");
 
         List<String> list = new ArrayList<String>();
         list.add("실전프로젝트");
         list.add("이산수학");
-        model.addAttribute("classList",list);
+        model.addAttribute("classList", list);
 
 
         return "list";

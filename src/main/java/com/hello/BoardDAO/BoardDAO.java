@@ -86,8 +86,9 @@ public class BoardDAO {
 //	}
 
 	public int updateBoard(BoardVO vo) {
-		String sql = "update BOARD (title,writer,content,category) values ( " + "'" + vo.getTitle() + "',"+ "'" + vo.getWriter() + "',"
-				+ "'" + vo.getContent() + "',"+ "'" + vo.getCategory() + "')";
+		String sql = "update BOARD set title'"+ vo.getTitle() + vo.getTitle() +"'," + "title='" + vo.getTitle() + "'," + "writer='" + vo.getWriter() + "',"+ "content='"+ vo.getContent() + "',"+ "category='" + vo.getCategory() +"' where seq=" + vo.getSeq();
+
+
 
 		return jdbcTemplate.update(sql);
 	}

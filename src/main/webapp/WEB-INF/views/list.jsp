@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<img src="img/myname.jpg" width="300"/>
+<img src="../img/myname.jpg" width="300"/>
 
 <h1>${title}</h1>
 
