@@ -22,7 +22,7 @@ public class helloController {
         return "index";
     }
 
-    @RequestMapping("board//posts")
+    @RequestMapping("board/posts")
     public String boardList(Model model) {
 
         model.addAttribute("list",boardService.getBoardList());
