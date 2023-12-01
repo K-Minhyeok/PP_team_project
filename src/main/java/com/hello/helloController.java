@@ -69,9 +69,6 @@ public class helloController {
         return "redirect:../posts";
     }
 
-
-//    이 위로는 문제 일으키는 거 없음 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
     @RequestMapping(value = "/editpost",  method = RequestMethod.POST)
     public String editPost(BoardVO vo){
         if(boardService.updateBoard(vo)==0){
@@ -81,6 +78,17 @@ public class helloController {
         }
         return "redirect:posts";
     }
+
+//    이 위로는 문제 일으키는 거 없음 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    public String viewPage(@PathVariable("id") int id,Model model){
+        BoardVO boardVO = boardService.getBoard(id);
+        model.addAttribute("u",boardVO);
+        return "view";
+    }
+
 
 
 

@@ -48,7 +48,7 @@
     </script>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1>4번째 과제</h1>
 
 <table id="list" width="90%">
     <thead>
