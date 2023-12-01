@@ -75,7 +75,7 @@ public class helloController {
     }
 
 
-    @RequestMapping(value = "/deletepost", method = RequestMethod.GET)
+    @RequestMapping(value = "/deletepost/{id}", method = RequestMethod.GET)
     public String deletePost(@PathVariable("id") int id){
         if(boardService.deleteBoard(id)==0){
             System.out.println("데이터 삭제 실패");
