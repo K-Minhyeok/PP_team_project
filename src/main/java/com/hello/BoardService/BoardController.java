@@ -3,38 +3,39 @@ package com.hello.BoardService;
 import com.hello.BoardBeans.BoardVO;
 import com.hello.BoardDAO.BoardDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import com.hello.BoardService.BoardService;
 
 @Service
-public class BoardServiceImpl implements BoardService{
+public class BoardController extends BoardService{
+//
+//    @Autowired
 
-    @Autowired
-    BoardDAO boardDAO;
-
+BoardService boardService;
 
     @Override
     public int insertBoard(BoardVO vo){
-        return boardDAO.insertBoard(vo);
+        return boardService.insertBoard(vo);
     }
+
+
     @Override
     public int deleteBoard(int seq){
-        return boardDAO.deleteBoard(seq);
+        return boardService.deleteBoard(seq);
     }
     @Override
     public int updateBoard(BoardVO vo){
-        return boardDAO.updateBoard(vo);
+        return boardService.updateBoard(vo);
     }
     @Override
     public BoardVO getBoard(int seq){
-        return boardDAO.getBoard(seq);
+        return boardService.getBoard(seq);
     }
 
     @Override
     public List<BoardVO> getBoardList(){
-        return boardDAO.getBoardList();
+        return boardService.getBoardList();
     }
 }

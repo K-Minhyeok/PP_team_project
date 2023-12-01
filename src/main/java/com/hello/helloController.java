@@ -15,17 +15,20 @@ public class helloController {
     BoardService boardService;
 
     @RequestMapping("/")
-    public String hello() {
+    public String hello(Model model) {
 //    System.out.println("This is hello function");
+        model.addAttribute("list",boardService.getBoardList());
 
         return "index";
     }
 
-    @RequestMapping("/board/list")
-    public String boardList() {
+    @RequestMapping("board//posts")
+    public String boardList(Model model) {
 
-        return "boardlist";
+        model.addAttribute("list",boardService.getBoardList());
+        return "posts";
     }
+
 
     @RequestMapping("classList")
     public String classList(Model model) {

@@ -121,8 +121,21 @@ public BoardVO getBoard(int seq){
 
 	public List<BoardVO> getBoardList() {
 		String sql ="select * from BOARD order by regdate desc";
-		return jdbcTemplate.query(sql,new BoardRowMapper());
+		List<BoardVO> list = jdbcTemplate.query(sql, new RowMapper() {
+			@Override
+			public BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BoardVO vo = new BoardVO();
+				vo.setSeq(rs.getInt("seq"));
+				vo.setTitle(rs.getString("title"));
+				vo.setWriter(rs.getString("writer"));
+				vo.setContent(rs.getString("content"));
+				vo.setCategory(rs.getString("category"));
+				vo.setRegdate(rs.getDate("regdate"));
 
+				return vo;
+			}
+		});
+		return list;
 
 	}
 //	public List<BoardVO> getBoardList(){
