@@ -70,6 +70,6 @@
 	</c:forEach>
 
 </table>
-<br/><a href="addpostform.jsp">Add New Post</a>
+<br/><a href="addpostform">Add New Post</a>
 </body>
 </html>
