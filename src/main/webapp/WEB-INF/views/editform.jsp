@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 <%@page import="com.hello.BoardDAO.BoardDAO, com.hello.BoardBeans.BoardVO" %>
@@ -11,7 +12,7 @@
 
 
 <h1>Edit Form</h1>
-<form action="editpost" method="post">
+<form action="../editpost" method="POST">
     <input type="hidden" name="seq" value="${u.seq}"/>
     <table>
         <tr>
@@ -35,7 +36,7 @@
                 <input type="button" value="Cancel" onclick="history.back()"/></td>
         </tr>
     </table>
-</form>
+
 
 </body>
 </html>

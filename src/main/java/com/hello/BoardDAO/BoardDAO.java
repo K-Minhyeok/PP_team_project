@@ -85,13 +85,19 @@ public class BoardDAO {
 //		return 0;
 //	}
 
-	public int updateBoard(BoardVO vo) {
-		String sql = "update BOARD set title'"+ vo.getTitle() + vo.getTitle() +"'," + "title='" + vo.getTitle() + "'," + "writer='" + vo.getWriter() + "',"+ "content='"+ vo.getContent() + "',"+ "category='" + vo.getCategory() +"' where seq=" + vo.getSeq();
+//	public int updateBoard(BoardVO vo) {
+//		String sql = "update BOARD set title'"+ vo.getTitle() +"'," + "title='" + vo.getTitle() + "'," + "writer='" + vo.getWriter() + "',"+ "content='"+ vo.getContent() + "',"+ "category='" + vo.getCategory() +"' where seq=" + vo.getSeq();
+//
+//
+//
+//		return jdbcTemplate.update(sql);
+//	}
+public int updateBoard(BoardVO vo) {
+	String sql = "update BOARD set title=?, writer=?, content=?, category=? where seq=?";
 
+	return jdbcTemplate.update(sql, vo.getTitle(), vo.getWriter(), vo.getContent(), vo.getCategory(), vo.getSeq());
+}
 
-
-		return jdbcTemplate.update(sql);
-	}
 
 //	public BoardVO getBoard(int seq) {
 //		BoardVO one = new BoardVO();

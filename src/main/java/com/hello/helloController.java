@@ -59,12 +59,20 @@ public class helloController {
         return "editform";
     }
 
-
+    @RequestMapping(value = "/deletepost/{id}", method = RequestMethod.GET)
+    public String deletePost(@PathVariable("id") int id){
+        if(boardService.deleteBoard(id)==0){
+            System.out.println("데이터 삭제 실패");
+        }else{
+            System.out.println("데이터 삭제 성공");
+        }
+        return "redirect:../posts";
+    }
 
 
 //    이 위로는 문제 일으키는 거 없음 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-    @RequestMapping(value = "/editpost",  method = RequestMethod.GET)
+    @RequestMapping(value = "/editpost",  method = RequestMethod.POST)
     public String editPost(BoardVO vo){
         if(boardService.updateBoard(vo)==0){
             System.out.println("데이터 수정 실패");
@@ -75,15 +83,7 @@ public class helloController {
     }
 
 
-    @RequestMapping(value = "/deletepost/{id}", method = RequestMethod.GET)
-    public String deletePost(@PathVariable("id") int id){
-        if(boardService.deleteBoard(id)==0){
-            System.out.println("데이터 삭제 실패");
-        }else{
-            System.out.println("데이터 삭제 성공");
-        }
-        return "redirect:../posts";
-        }
+
     }
 
 
